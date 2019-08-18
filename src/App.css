@@ -97,4 +97,6 @@ text-align: center;
 
 #nameError,#emailError,#passwordError,#cnfm-passwordError,#genderError,#phoneError{
   color:red;
+  font-size: 14px;
+  font-family: sans-serif;
 }
