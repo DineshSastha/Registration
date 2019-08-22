@@ -98,10 +98,22 @@ function checkConfirmPassword(password, confirmPassword) {
 	}
 }
 
+function createMessage(html, message) {
+	let span = `<span class="error ${html.name}">${message}</span>`
+	html.outerHTML += span
+}
 
+function deleteAllErrorMessages() {
+	let selector = 'span.error'
+	let errors = document.querySelectorAll(selector)
+	debugger;
+	for(let [key,error] of errors.entries()) {
+		error.outerHTML = ''
+	}
+}
 
 export function validate(json) {
-	debugger;
+	deleteAllErrorMessages()
 	console.log(JSON.stringify(json));
 	var rules = json.rules;
 	var messages = json.messages;
@@ -111,18 +123,12 @@ export function validate(json) {
 		console.log(html);
 		let value = html.value;
 		for (let key in rules[rule]) {
-			debugger;
 			// let keyValue = rules[rule][key];
 			switch (key) {
 				case "required": {
 					if (!checkRequired(value)) {
 						message = messages[rule][key];
-						console.log(message);
-						html.innerHTML = message;
-						// var x = document.querySelectorAll("span");
-						// for(let i in x){
-						// 	document.querySelector(i).innerHTML = message;
-						// }
+						createMessage(html, message)
 					}
 					break;
 				}
