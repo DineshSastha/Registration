@@ -95,8 +95,8 @@ text-align: center;
   text-align: center;
 }
 
-#nameError,#emailError,#passwordError,#cnfm-passwordError,#genderError,#phoneError{
+#nameError,#emailError,#passwordError,#confirmPasswordError,#genderError,#phoneError{
   color:red;
-  font-size: 14px;
+  font-size: 12px;
   font-family: sans-serif;
 }
